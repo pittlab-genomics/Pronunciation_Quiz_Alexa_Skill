@@ -28,33 +28,51 @@
           "samples": []
         },
         {
-          "name": "AnswerIntent",
+          "name": "UserIdentifierIntent",
           "slots": [
             {
-              "name": "GeneName",
-              "type": "AMAZON.SearchQuery",
+              "name": "user_identifier",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
               "samples": [
-                "{GeneName}"
+                "{user_identifier}",
+                "My user code is {user_identifier}"
               ]
             }
           ],
           "samples": [
-            "It is {GeneName}",
-            "That is {GeneName}",
-            "Answer is {GeneName}"
+            "My user code is {user_identifier}"
+          ]
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "gene_query",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{gene_query}",
+                "Answer is {gene_query}"
+              ]
+            }
+          ],
+          "samples": [
+            "It is {gene_query}",
+            "That is {gene_query}",
+            "Answer is {gene_query}"
           ]
         },
         {
           "name": "QuizIntent",
           "slots": [],
           "samples": [
-            "play gene quiz",
-            "start a quiz",
-            "start a quiz game",
-            "and start a quiz",
-            "and quiz me",
-            "for a quiz",
-            "a quiz"
+            "play gene quiz"
+          ]
+        },
+        {
+          "name": "ImageViewerIntent",
+          "slots": [],
+          "samples": [
+            "show me images"
           ]
         },
         {
@@ -98,7 +116,35 @@
           "samples": []
         }
       ],
-      "types": []
+      "types": [
+        {
+          "name": "CoffeeType",
+          "values": [
+            {
+              "name": {
+                "value": "cold",
+                "synonyms": [
+                  "warmed",
+                  "colder",
+                  "cooling",
+                  "too cold",
+                  "cooler"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "hot",
+                "synonyms": [
+                  "hotter",
+                  "warmer",
+                  "warm"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     "dialog": {
       "intents": [
@@ -108,12 +154,28 @@
           "prompts": {},
           "slots": [
             {
-              "name": "GeneName",
+              "name": "gene_query",
               "type": "AMAZON.SearchQuery",
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "Elicit.Slot.678505364167.45229514063"
+                "elicitation": "Elicit.Slot.AnswerIntent.gene_query"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UserIdentifierIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "user_identifier",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.UserIdentifierIntent.user_identifier"
               }
             }
           ]
@@ -123,15 +185,23 @@
     },
     "prompts": [
       {
-        "id": "Elicit.Slot.678505364167.45229514063",
+        "id": "Elicit.Slot.AnswerIntent.gene_query",
         "variations": [
           {
             "type": "PlainText",
-            "value": "Please provide an answer for the gene name"
+            "value": "Please enunciate the gene name."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.UserIdentifierIntent.user_identifier",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide your four-digit user identification code."
           }
         ]
       }
     ]
-  },
-  "version": "2"
+  }
 }

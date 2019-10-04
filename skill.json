@@ -3,8 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "gene-quiz-alexa-skill-intent-handler-dev-alexa-skill",
-          "sourceDir": "lambda/eu-west-1_gene-quiz-alexa-skill-intent-handler-dev-alexa-skill"
+          "uri": "gene-quiz-alexa-skill-intent-handler-dev-alexa-skill"
         },
         "interfaces": [
           {
@@ -60,12 +59,34 @@
       }
     },
     "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "name": "Gene Quiz"
+          "name": "Gene Quiz",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/83eb/6d8a6f709d6a45789f854898042e0d45/APP_ICON?versionId=nW4q0dUzXJNO1tLVr6v33Alw4p.jxAFH&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190906T094559Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190906%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0a555e10e10b3efeeae44acd1195bd8aba18128f58da934de08b3eb75be1918b",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4535/b6c8aac78d7d4dd4ba4a236d770ac7a9/APP_ICON_LARGE?versionId=_qIToFICrNIEtYi95T2oCziPEtYxhsdK&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190906T094559Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190906%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=eb14399fd7c091f2188d6adf99cf681add3efec0380593744a2d644532760d15",
+          "summary": "Play gene quiz game",
+          "description": "Play gene quiz game",
+          "examplePhrases": [
+            "Alexa, play gene quiz"
+          ],
+          "keywords": []
         }
-      }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Nothing specific",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
     }
   }
 }
