@@ -28,54 +28,6 @@
           "samples": []
         },
         {
-          "name": "UserIdentifierIntent",
-          "slots": [
-            {
-              "name": "user_identifier",
-              "type": "AMAZON.FOUR_DIGIT_NUMBER",
-              "samples": [
-                "{user_identifier}",
-                "My user code is {user_identifier}"
-              ]
-            }
-          ],
-          "samples": [
-            "My user code is {user_identifier}"
-          ]
-        },
-        {
-          "name": "AnswerIntent",
-          "slots": [
-            {
-              "name": "gene_query",
-              "type": "AMAZON.SearchQuery",
-              "samples": [
-                "{gene_query}",
-                "Answer is {gene_query}"
-              ]
-            }
-          ],
-          "samples": [
-            "It is {gene_query}",
-            "That is {gene_query}",
-            "Answer is {gene_query}"
-          ]
-        },
-        {
-          "name": "QuizIntent",
-          "slots": [],
-          "samples": [
-            "play gene quiz"
-          ]
-        },
-        {
-          "name": "ImageViewerIntent",
-          "slots": [],
-          "samples": [
-            "show me images"
-          ]
-        },
-        {
           "name": "AMAZON.MoreIntent",
           "samples": []
         },
@@ -114,32 +66,94 @@
         {
           "name": "AMAZON.ScrollUpIntent",
           "samples": []
+        },
+        {
+          "name": "UserIdentifierIntent",
+          "slots": [
+            {
+              "name": "user_identifier",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "samples": [
+                "{user_identifier}",
+                "My user identification code {user_identifier}"
+              ]
+            }
+          ],
+          "samples": [
+            "My user identification code {user_identifier}"
+          ]
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "custom",
+              "type": "CustomType",
+              "samples": []
+            },
+            {
+              "name": "quiz_answer_query",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "It is {quiz_answer_query}",
+            "That is {quiz_answer_query}",
+            "Answer is {quiz_answer_query}"
+          ]
+        },
+        {
+          "name": "GeneQuizIntent",
+          "slots": [],
+          "samples": [
+            "play gene quiz"
+          ]
+        },
+        {
+          "name": "CancerQuizIntent",
+          "slots": [],
+          "samples": [
+            "play cancer quiz"
+          ]
+        },
+        {
+          "name": "ImageViewerIntent",
+          "slots": [],
+          "samples": [
+            "show me images"
+          ]
+        },
+        {
+          "name": "ExpertAnswerIntent",
+          "slots": [
+            {
+              "name": "expert",
+              "type": "CustomType",
+              "samples": [
+                "{expert}"
+              ]
+            }
+          ],
+          "samples": [
+            "The expert answer {expert}"
+          ]
+        },
+        {
+          "name": "StartExpertAnswerIntent",
+          "slots": [],
+          "samples": [
+            "Start expert quiz"
+          ]
         }
       ],
       "types": [
         {
-          "name": "CoffeeType",
+          "name": "CustomType",
           "values": [
             {
               "name": {
-                "value": "cold",
-                "synonyms": [
-                  "warmed",
-                  "colder",
-                  "cooling",
-                  "too cold",
-                  "cooler"
-                ]
-              }
-            },
-            {
-              "name": {
-                "value": "hot",
-                "synonyms": [
-                  "hotter",
-                  "warmer",
-                  "warm"
-                ]
+                "value": "value",
+                "synonyms": []
               }
             }
           ]
@@ -154,12 +168,12 @@
           "prompts": {},
           "slots": [
             {
-              "name": "gene_query",
+              "name": "quiz_answer_query",
               "type": "AMAZON.SearchQuery",
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "Elicit.Slot.AnswerIntent.gene_query"
+                "elicitation": "Elicit.Slot.AnswerIntent.quiz_answer_query"
               }
             }
           ]
@@ -179,17 +193,33 @@
               }
             }
           ]
+        },
+        {
+          "name": "ExpertAnswerIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "expert",
+              "type": "CustomType",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.ExpertAnswerIntent.expert"
+              }
+            }
+          ]
         }
       ],
       "delegationStrategy": "ALWAYS"
     },
     "prompts": [
       {
-        "id": "Elicit.Slot.AnswerIntent.gene_query",
+        "id": "Elicit.Slot.AnswerIntent.quiz_answer_query",
         "variations": [
           {
             "type": "PlainText",
-            "value": "Please enunciate the gene name."
+            "value": "Please pronounce the item displayed on the screen."
           }
         ]
       },
@@ -199,6 +229,15 @@
           {
             "type": "PlainText",
             "value": "Please provide your four-digit user identification code."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.ExpertAnswerIntent.expert",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "DM expert quiz"
           }
         ]
       }
