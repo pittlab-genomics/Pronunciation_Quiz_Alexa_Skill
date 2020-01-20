@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "gene-quiz-alexa-skill-intent-handler-dev-alexa-skill"
+          "uri": "gene-quiz-alexa-skill-intent-handler-uat-alexa-skill"
         },
         "interfaces": [
           {

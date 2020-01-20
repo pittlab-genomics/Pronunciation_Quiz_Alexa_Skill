@@ -80,47 +80,47 @@
             }
           ],
           "samples": [
-            "My user identification code {user_identifier}"
+            "My user identification code is {user_identifier}",
+            "My user code is {user_identifier}"
           ]
         },
         {
           "name": "AnswerIntent",
           "slots": [
             {
-              "name": "custom",
-              "type": "CustomType",
-              "samples": []
-            },
-            {
               "name": "quiz_answer_query",
               "type": "AMAZON.SearchQuery"
             }
           ],
           "samples": [
-            "It is {quiz_answer_query}",
-            "That is {quiz_answer_query}",
-            "Answer is {quiz_answer_query}"
+            "it is {quiz_answer_query}",
+            "that is {quiz_answer_query}",
+            "answer is {quiz_answer_query}",
+            "show me {quiz_answer_query}"
           ]
         },
         {
           "name": "GeneQuizIntent",
           "slots": [],
           "samples": [
-            "play gene quiz"
+            "play gene quiz",
+            "gene quiz"
           ]
         },
         {
           "name": "CancerQuizIntent",
           "slots": [],
           "samples": [
-            "play cancer quiz"
+            "play cancer quiz",
+            "cancer quiz"
           ]
         },
         {
-          "name": "ImageViewerIntent",
+          "name": "TestQuizIntent",
           "slots": [],
           "samples": [
-            "show me images"
+            "play test quiz",
+            "test quiz"
           ]
         },
         {
@@ -135,14 +135,15 @@
             }
           ],
           "samples": [
-            "The expert answer {expert}"
+            "expert answer is {expert}"
           ]
         },
         {
-          "name": "StartExpertAnswerIntent",
+          "name": "ExpertQuizIntent",
           "slots": [],
           "samples": [
-            "Start expert quiz"
+            "play expert quiz",
+            "expert quiz"
           ]
         }
       ],
@@ -152,8 +153,7 @@
           "values": [
             {
               "name": {
-                "value": "value",
-                "synonyms": []
+                "value": "this is required"
               }
             }
           ]
@@ -202,8 +202,8 @@
             {
               "name": "expert",
               "type": "CustomType",
-              "confirmationRequired": false,
               "elicitationRequired": true,
+              "confirmationRequired": false,
               "prompts": {
                 "elicitation": "Elicit.Slot.ExpertAnswerIntent.expert"
               }
