@@ -74,14 +74,12 @@
               "name": "user_identifier",
               "type": "AMAZON.FOUR_DIGIT_NUMBER",
               "samples": [
-                "{user_identifier}",
-                "My user identification code {user_identifier}"
+                "{user_identifier}"
               ]
             }
           ],
           "samples": [
-            "My user identification code is {user_identifier}",
-            "My user code is {user_identifier}"
+            "Google assistant {user_identifier}"
           ]
         },
         {
@@ -97,6 +95,13 @@
             "that is {quiz_answer_query}",
             "answer is {quiz_answer_query}",
             "show me {quiz_answer_query}"
+          ]
+        },
+        {
+          "name": "RepeatQuizIntent",
+          "slots": [],
+          "samples": [
+            "repeat last prompt"
           ]
         },
         {
