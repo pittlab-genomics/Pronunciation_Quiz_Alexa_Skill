@@ -92,9 +92,7 @@
           ],
           "samples": [
             "it is {quiz_answer_query}",
-            "that is {quiz_answer_query}",
-            "answer is {quiz_answer_query}",
-            "show me {quiz_answer_query}"
+            "that is {quiz_answer_query}"
           ]
         },
         {
@@ -121,6 +119,14 @@
           ]
         },
         {
+          "name": "CategoryQuizIntent",
+          "slots": [],
+          "samples": [
+            "play category quiz",
+            "category quiz"
+          ]
+        },
+        {
           "name": "TestQuizIntent",
           "slots": [],
           "samples": [
@@ -132,15 +138,15 @@
           "name": "ExpertAnswerIntent",
           "slots": [
             {
-              "name": "expert",
-              "type": "CustomType",
+              "name": "expert_query",
+              "type": "AMAZON.SearchQuery",
               "samples": [
-                "{expert}"
+                "{expert_query}"
               ]
             }
           ],
           "samples": [
-            "expert answer is {expert}"
+            "expert query {expert_query}"
           ]
         },
         {
@@ -154,35 +160,19 @@
       ],
       "types": [
         {
-          "name": "CustomType",
           "values": [
             {
               "name": {
                 "value": "this is required"
               }
             }
-          ]
+          ],
+          "name": "CustomType"
         }
       ]
     },
     "dialog": {
       "intents": [
-        {
-          "name": "AnswerIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "quiz_answer_query",
-              "type": "AMAZON.SearchQuery",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Slot.AnswerIntent.quiz_answer_query"
-              }
-            }
-          ]
-        },
         {
           "name": "UserIdentifierIntent",
           "confirmationRequired": false,
@@ -205,12 +195,12 @@
           "prompts": {},
           "slots": [
             {
-              "name": "expert",
-              "type": "CustomType",
+              "name": "expert_query",
+              "type": "AMAZON.SearchQuery",
               "elicitationRequired": true,
               "confirmationRequired": false,
               "prompts": {
-                "elicitation": "Elicit.Slot.ExpertAnswerIntent.expert"
+                "elicitation": "Elicit.Slot.ExpertAnswerIntent.expert_query"
               }
             }
           ]
@@ -219,15 +209,6 @@
       "delegationStrategy": "ALWAYS"
     },
     "prompts": [
-      {
-        "id": "Elicit.Slot.AnswerIntent.quiz_answer_query",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Please pronounce the item displayed on the screen."
-          }
-        ]
-      },
       {
         "id": "Elicit.Slot.UserIdentifierIntent.user_identifier",
         "variations": [
@@ -238,11 +219,11 @@
         ]
       },
       {
-        "id": "Elicit.Slot.ExpertAnswerIntent.expert",
+        "id": "Elicit.Slot.ExpertAnswerIntent.expert_query",
         "variations": [
           {
             "type": "PlainText",
-            "value": "DM expert quiz"
+            "value": "expert query"
           }
         ]
       }
