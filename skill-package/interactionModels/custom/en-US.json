@@ -91,7 +91,6 @@
             }
           ],
           "samples": [
-            "it is {quiz_answer_query}",
             "that is {quiz_answer_query}"
           ]
         },
@@ -156,18 +155,6 @@
             "play expert quiz",
             "expert quiz"
           ]
-        }
-      ],
-      "types": [
-        {
-          "values": [
-            {
-              "name": {
-                "value": "this is required"
-              }
-            }
-          ],
-          "name": "CustomType"
         }
       ]
     },
